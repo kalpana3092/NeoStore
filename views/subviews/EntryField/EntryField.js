@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Image, TextInput} from 'react-native';
-import EntryStyle from './EntryField.style';
-import * as Colors from '../../utilities/Constants/ColorConstant';
+import EntryStyle from '../EntryField/EntryField.style';
+import * as Colors from '../../../utilities/Constants/ColorConstant';
 const EntryField = (props) => {
   const KeyboardType = (keyType) => {
     switch (keyType) {

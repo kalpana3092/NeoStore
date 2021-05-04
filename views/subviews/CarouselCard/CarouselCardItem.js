@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, Dimensions, Image} from 'react-native';
+import {View, Dimensions, Image} from 'react-native';
 import CarouselCardItemStyle from './CarouselCardItem.style';
 
 export const SLIDER_WIDTH = Dimensions.get('window').width;

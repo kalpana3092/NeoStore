@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {Text, View, FlatList, SafeAreaView, Image} from 'react-native';
+import {View, FlatList, SafeAreaView, Image} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 import * as ImageConstant from '../../utilities/Constants/ImageConstant';
 import HomeStyle from '../Home/HomeView.style';
 import CarouselCards from '../subviews/CarouselCard/CarouselCards';
@@ -12,23 +13,24 @@ const data = [
 ];
 const numColumns = 2;
 
-export default class HomeView extends Component {
-  render() {
-    return (
-      <SafeAreaView>
-        <CarouselCards />
-        <FlatList
-          data={data}
-          renderItem={({item}) => (
+const HomeView = (prop) => {
+  return (
+    <SafeAreaView>
+      <CarouselCards />
+      <FlatList
+        data={data}
+        renderItem={({item}) => (
+          <TouchableOpacity onPress={() => prop.navigation.navigate('PList')}>
             <View style={HomeStyle.itemContainer}>
               <Image source={item.value} style={HomeStyle.imageStyle} />
             </View>
-          )}
-          keyExtractor={(item) => item.id}
-          numColumns={numColumns}
-          scrollEnabled={false}
-        />
-      </SafeAreaView>
-    );
-  }
-}
+          </TouchableOpacity>
+        )}
+        keyExtractor={(item) => item.id}
+        numColumns={numColumns}
+        scrollEnabled={false}
+      />
+    </SafeAreaView>
+  );
+};
+export default HomeView;

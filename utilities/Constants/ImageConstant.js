@@ -16,6 +16,8 @@ export const RP_IMG_UNCHECK = require('../../assets/Images/ic_uncheck.png');
 export const RP_IMG_PHONE = require('../../assets/Images/ic_phone.png');
 export const RP_IMG_UNCHECKTERMS = require('../../assets/Images/ic_uncheck_terms.png');
 export const RP_IMG_CHECKTERMS = require('../../assets/Images/ic_check_terms.png');
+export const PL_IMG_STARCHECK = require('../../assets/Images/ic_star_check.png');
+export const PL_IMG_STARUNCHECK = require('../../assets/Images/ic_star_unchek.png');
 
 export const HM_IMG_SLIDER1 = require('../../assets/Images/ic_slider_1.jpg');
 export const HM_IMG_SLIDER2 = require('../../assets/Images/ic_slider_2.jpg');

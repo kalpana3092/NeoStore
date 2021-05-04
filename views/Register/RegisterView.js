@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View, SafeAreaView, ScrollView, Text, Image, Alert} from 'react-native';
 import RegisterStyle from '../Register/RegisterView.style';
-import EntryField from '../subviews/EntryField';
+import EntryField from '../subviews/EntryField/EntryField';
 import * as ImageConstant from '../../utilities/Constants/ImageConstant';
 import * as Strings from '../../utilities/Constants/StringConstant';
 import {TouchableOpacity} from 'react-native-gesture-handler';
@@ -125,6 +125,7 @@ const RegisterView = (props) => {
       Alert.alert(Strings.LP_NEOSTORE, Strings.ERROR_MSG.REGISTER.TERMS);
       return;
     }
+    props.navigation.navigate('Home');
   };
   const keyboardVerticalOffset = Platform.OS === 'ios' ? 64 : 0;
   return (

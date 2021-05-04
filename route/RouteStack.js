@@ -5,6 +5,7 @@ import {StatusBar} from 'react-native';
 import LoginView from '../views/Login/LoginView';
 import HomeView from '../views/Home/HomeView';
 import RegisterView from '../views/Register/RegisterView';
+import ProductListingView from '../views/ProductListing/ProductListingView';
 
 const Stack = createStackNavigator();
 const RouteStack = () => {
@@ -33,6 +34,11 @@ const RouteStack = () => {
           name="Register"
           component={RegisterView}
           options={{title: 'Register'}}
+        />
+        <Stack.Screen
+          name="PList"
+          component={ProductListingView}
+          options={{title: 'Tables'}}
         />
       </Stack.Navigator>
     </NavigationContainer>
