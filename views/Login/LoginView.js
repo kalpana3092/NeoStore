@@ -13,6 +13,7 @@ import LoginViewModel from '../../viewmodel/Login/LoginViewModel';
 import * as ImageConstant from '../../utilities/Constants/ImageConstant';
 import * as Strings from '../../utilities/Constants/StringConstant';
 import {ScrollView} from 'react-native-gesture-handler';
+import RouteConstant from '../../utilities/Constants/RouteConstant';
 export default class LoginView extends Component {
   constructor(props) {
     super(props);
@@ -48,14 +49,14 @@ export default class LoginView extends Component {
       return;
     }
 
-    this.props.navigation.navigate('Home');
+    this.props.navigation.navigate(RouteConstant.Home);
   };
 
   /**
    * Called on click of signup
    */
   onClickSignupButton = () => {
-    this.props.navigation.navigate('Register');
+    this.props.navigation.navigate(RouteConstant.Register);
   };
 
   /**

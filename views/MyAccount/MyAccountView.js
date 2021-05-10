@@ -1,7 +1,7 @@
 import React from 'react';
-import {View, SafeAreaView} from 'react-native';
+import {Text, SafeAreaView} from 'react-native';
 
-const MyAccountView = () => {
+const MyAccountView = ({navigation, route}) => {
   return (
     <SafeAreaView>
       <Text>My Account</Text>

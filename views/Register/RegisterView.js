@@ -7,6 +7,7 @@ import * as Strings from '../../utilities/Constants/StringConstant';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import RegisterViewModel from '../../viewmodel/Register/RegisterViewModel';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import RouteConstant from '../../utilities/Constants/RouteConstant';
 
 const RegisterView = (props) => {
   //1. First name
@@ -125,7 +126,7 @@ const RegisterView = (props) => {
       Alert.alert(Strings.LP_NEOSTORE, Strings.ERROR_MSG.REGISTER.TERMS);
       return;
     }
-    props.navigation.navigate('Home');
+    props.navigation.navigate(RouteConstant.Home);
   };
   const keyboardVerticalOffset = Platform.OS === 'ios' ? 64 : 0;
   return (

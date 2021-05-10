@@ -6,6 +6,7 @@ import LoginView from '../views/Login/LoginView';
 import HomeView from '../views/Home/HomeView';
 import RegisterView from '../views/Register/RegisterView';
 import ProductListingView from '../views/ProductListing/ProductListingView';
+import RouteConstant from '../utilities/Constants/RouteConstant';
 
 const Stack = createStackNavigator();
 const RouteStack = () => {
@@ -13,7 +14,7 @@ const RouteStack = () => {
     <NavigationContainer>
       <StatusBar barStyle="light-content" />
       <Stack.Navigator
-        initialRouteName="Login"
+        initialRouteName={RouteConstant.Login}
         screenOptions={{
           headerStyle: {
             backgroundColor: '#e91c1a',
@@ -21,24 +22,15 @@ const RouteStack = () => {
           headerTintColor: '#fff',
           headerTitleStyle: {
             fontWeight: 'bold',
+            fontSize: 25,
           },
           headerBackTitle: ' ',
         }}>
-        <Stack.Screen name="Login" component={LoginView} />
+        <Stack.Screen name={RouteConstant.Login} component={LoginView} />
         <Stack.Screen
-          name="Home"
-          component={HomeView}
-          options={{title: 'Dashboard'}}
-        />
-        <Stack.Screen
-          name="Register"
+          name={RouteConstant.Register}
           component={RegisterView}
           options={{title: 'Register'}}
-        />
-        <Stack.Screen
-          name="PList"
-          component={ProductListingView}
-          options={{title: 'Tables'}}
         />
       </Stack.Navigator>
     </NavigationContainer>

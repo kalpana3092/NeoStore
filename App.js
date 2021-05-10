@@ -8,9 +8,10 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import RouteStack from './route/RouteStack';
-
+import DrawerStack from './route/DrawerStack';
+const IsLogin = true;
 const App = () => {
-  return <RouteStack />;
+  return IsLogin ? <DrawerStack /> : <RouteStack />;
 };
 
 export default App;

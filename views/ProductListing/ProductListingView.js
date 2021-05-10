@@ -1,4 +1,5 @@
 import React from 'react';
+import {useEffect} from 'react';
 import {FlatList, SafeAreaView, View} from 'react-native';
 import ProductItem from '../subviews/ProductItem/ProductItem';
 import ProductListingStyle from './ProductListingView.style';
@@ -23,7 +24,15 @@ const data = [
     price: 'RS. 28,000',
   },
 ];
-const ProductListingView = () => {
+const ProductListingView = ({route, navigation}) => {
+  // const navTitle = route.params.title;
+  // useEffect(() => {
+  //   if (navTitle != undefined) {
+  //     navigation.setOptions({
+  //       title: route.params.title,
+  //     });
+  //   }
+  // }, [navTitle]);
   return (
     <SafeAreaView>
       <View style={ProductListingStyle.mainView}>
