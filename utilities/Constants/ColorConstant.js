@@ -8,3 +8,4 @@ export const EL_GREY = '#bfbfbf';
 export const H_ITEM = '#df595a';
 export const APP_TEXT = '#E91C1A';
 export const APP_INPUT = '#fe3f3f';
+export const LBG_GREY = '#ededed';

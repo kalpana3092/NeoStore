@@ -77,6 +77,11 @@ function firstScreenStack({navigation}) {
         component={ProductDetailView}
         options={NavigationScreenOption()}
       />
+      <Stack.Screen
+        name={RouteConstant.Account}
+        component={MyAccountView}
+        options={NavigationScreenOption()}
+      />
     </Stack.Navigator>
   );
 }
@@ -118,10 +123,10 @@ const DrawerStack = () => {
         drawerType="back"
         drawerContent={(props) => <DrawerMenu {...props} />}>
         <Drawer.Screen name={RouteConstant.Home} component={firstScreenStack} />
-        <Drawer.Screen
+        {/* <Drawer.Screen
           name={RouteConstant.Product}
           component={secondScreenStack}
-        />
+        /> */}
       </Drawer.Navigator>
     </NavigationContainer>
   );

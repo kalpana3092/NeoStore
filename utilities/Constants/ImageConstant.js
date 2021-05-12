@@ -34,3 +34,4 @@ export const SD_IMG_CUPBOARD = require('../../assets/Images/ic_menu_cupboard.png
 export const SD_IMG_STORE = require('../../assets/Images/ic_menu_store.png');
 export const SD_IMG_ORDER = require('../../assets/Images/ic_menu_order.png');
 export const SD_IMG_LOGOUT = require('../../assets/Images/ic_menu_logout.png');
+export const PD_IMG_SHARE = require('../../assets/Images/share.png');

@@ -26,14 +26,14 @@ const data = [
   },
 ];
 const ProductListingView = ({route, navigation}) => {
-  // const navTitle = route.params.title;
-  // useEffect(() => {
-  //   if (navTitle != undefined) {
-  //     navigation.setOptions({
-  //       title: route.params.title,
-  //     });
-  //   }
-  // }, [navTitle]);
+  const navTitle = route.params.title;
+  useEffect(() => {
+    if (navTitle != undefined) {
+      navigation.setOptions({
+        title: route.params.title,
+      });
+    }
+  }, [navTitle]);
   return (
     <SafeAreaView>
       <View style={ProductListingStyle.mainView}>
