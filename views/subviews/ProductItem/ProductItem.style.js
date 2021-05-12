@@ -16,14 +16,14 @@ const ProductItemStyle = StyleSheet.create({
     marginRight: 15,
   },
   horizontalLine: {
-    height: 1.5,
+    height: 1,
     width: '100%',
     backgroundColor: Colors.L_GREY,
   },
 
   name: {
     fontFamily: Fonts.GOTHAM_BOLD,
-    fontSize: 15,
+    fontSize: 20,
     color: Colors.GREY,
   },
 
@@ -31,7 +31,7 @@ const ProductItemStyle = StyleSheet.create({
     fontFamily: Fonts.GOTHAM_BOOK,
     fontSize: 10,
     color: Colors.GREY,
-    marginTop: 8,
+    marginTop: 5,
   },
 
   price: {
@@ -41,7 +41,7 @@ const ProductItemStyle = StyleSheet.create({
   },
 
   pricerateView: {
-    marginBottom: 10,
+    marginBottom: 5,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',

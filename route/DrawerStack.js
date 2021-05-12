@@ -10,6 +10,7 @@ import ProductListingView from '../views/ProductListing/ProductListingView';
 import MyAccountView from '../views/MyAccount/MyAccountView';
 import RouteConstant from '../utilities/Constants/RouteConstant';
 import * as ImgConstant from '../utilities/Constants/ImageConstant';
+import ProductDetailView from '../views/ProductDetail/ProductDetailView';
 
 const Stack = createStackNavigator();
 const NavigationDrawerStructure = (props) => {
@@ -69,6 +70,11 @@ function firstScreenStack({navigation}) {
       <Stack.Screen
         name={RouteConstant.Product}
         component={ProductListingView}
+        options={NavigationScreenOption()}
+      />
+      <Stack.Screen
+        name={RouteConstant.ProductDetail}
+        component={ProductDetailView}
         options={NavigationScreenOption()}
       />
     </Stack.Navigator>

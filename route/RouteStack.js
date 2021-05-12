@@ -3,9 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {StatusBar} from 'react-native';
 import LoginView from '../views/Login/LoginView';
-import HomeView from '../views/Home/HomeView';
 import RegisterView from '../views/Register/RegisterView';
-import ProductListingView from '../views/ProductListing/ProductListingView';
 import RouteConstant from '../utilities/Constants/RouteConstant';
 
 const Stack = createStackNavigator();

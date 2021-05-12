@@ -4,9 +4,9 @@ export default RouteConstant = {
   Home: 'Home',
   Cart: 'MyCart',
   Product: 'ProductList',
+  ProductDetail: 'ProductDetail',
   Store: 'StoreLocator',
   Account: 'MyAccount',
   Logout: 'Logout',
   Order: 'MyOrders',
-  ProdDetails: 'ProductDetailPage',
 };

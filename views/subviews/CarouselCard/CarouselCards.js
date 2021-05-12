@@ -1,9 +1,10 @@
 import React from 'react';
-import {View} from 'react-native';
+import {View, Dimensions} from 'react-native';
 import Carousel, {Pagination} from 'react-native-snap-carousel';
 import * as Colors from '../../../utilities/Constants/ColorConstant';
 import HomeViewModel from '../../../viewmodel/Home/HomeViewModel';
 import CarouselCardItem, {SLIDER_WIDTH, ITEM_WIDTH} from './CarouselCardItem';
+const height = Dimensions.get('window').height;
 
 const data = HomeViewModel.GetCaroselData();
 const CarouselCards = () => {
@@ -11,7 +12,7 @@ const CarouselCards = () => {
   const isCarousel = React.useRef(null);
 
   return (
-    <View style={{height: 220, marginBottom: 10}}>
+    <View style={{height: height * 0.33, marginBottom: 10}}>
       <Carousel
         layout="stack"
         layoutCardOffset={9}
