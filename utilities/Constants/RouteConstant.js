@@ -9,4 +9,6 @@ export default RouteConstant = {
   Account: 'MyAccount',
   Logout: 'Logout',
   Order: 'MyOrders',
+  ForgotPassword: 'ForgotPassword',
+  ResetPassword: 'ResetPassword',
 };

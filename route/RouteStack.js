@@ -5,6 +5,7 @@ import {StatusBar} from 'react-native';
 import LoginView from '../views/Login/LoginView';
 import RegisterView from '../views/Register/RegisterView';
 import RouteConstant from '../utilities/Constants/RouteConstant';
+import ForgotPasswordView from '../views/ForgotPassword/ForgotPasswordView';
 
 const Stack = createStackNavigator();
 const RouteStack = () => {
@@ -29,6 +30,11 @@ const RouteStack = () => {
           name={RouteConstant.Register}
           component={RegisterView}
           options={{title: 'Register'}}
+        />
+        <Stack.Screen
+          name={RouteConstant.ForgotPassword}
+          component={ForgotPasswordView}
+          options={{title: 'Forgot Password'}}
         />
       </Stack.Navigator>
     </NavigationContainer>

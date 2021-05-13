@@ -24,6 +24,7 @@ const EntryField = (props) => {
         secureTextEntry={props.isPassword}
         autoCorrect={false}
         onChangeText={props.onChangeText}
+        editable={props.isEditable == undefined ? true : props.isEditable}
       />
     </View>
   );

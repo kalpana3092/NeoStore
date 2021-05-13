@@ -63,7 +63,7 @@ export default class LoginView extends Component {
    * Called on click of forgot password
    */
   onClickForgotPassButton = () => {
-    alert('send link to email');
+    this.props.navigation.navigate(RouteConstant.ForgotPassword);
   };
 
   render() {

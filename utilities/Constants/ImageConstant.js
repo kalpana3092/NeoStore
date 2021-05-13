@@ -35,3 +35,4 @@ export const SD_IMG_STORE = require('../../assets/Images/ic_menu_store.png');
 export const SD_IMG_ORDER = require('../../assets/Images/ic_menu_order.png');
 export const SD_IMG_LOGOUT = require('../../assets/Images/ic_menu_logout.png');
 export const PD_IMG_SHARE = require('../../assets/Images/share.png');
+export const PF_IMG_DOB = require('../../assets/Images/dob_icon/dob_icon.png');
