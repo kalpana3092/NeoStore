@@ -72,25 +72,22 @@ const DrawerViewModel = {
       let returnItem = {};
       switch (Module.id) {
         case '3':
-          returnItem = {page: Module.page, id: '1', title: 'Tables'};
+          returnItem = {page: Module.page, id: '1', title: Module.title};
           break;
         case '4':
-          returnItem = {page: Module.page, id: '3', title: 'Sofa'};
+          returnItem = {page: Module.page, id: '3', title: Module.title};
           break;
         case '5':
-          returnItem = {page: Module.page, id: '2', title: 'Chair'};
+          returnItem = {page: Module.page, id: '2', title: Module.title};
           break;
         case '6':
-          returnItem = {page: Module.page, id: '4', title: 'Cupboard'};
-          break;
-        case '7':
-          returnItem = {page: Module.page, id: '7', title: 'My Account'};
+          returnItem = {page: Module.page, id: '4', title: Module.title};
           break;
         case '10':
           returnItem = {id: '10'};
           break;
         default:
-          returnItem = {page: Module.page};
+          returnItem = {page: Module.page, title: Module.title};
           break;
       }
 

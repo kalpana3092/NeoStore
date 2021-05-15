@@ -27,9 +27,6 @@ const DrawerMenu = (props) => {
                 return;
               }
             }
-            console.log(Page.page);
-            console.log(Page.id != undefined ? Page.id : '');
-            console.log(Page.title != undefined ? Page.title : '');
             props.navigation.navigate(Page.page, {
               ProductId: Page.id != undefined ? Page.id : '',
               title: Page.title != undefined ? Page.title : '',

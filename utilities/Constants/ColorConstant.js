@@ -9,3 +9,5 @@ export const H_ITEM = '#df595a';
 export const APP_TEXT = '#E91C1A';
 export const APP_INPUT = '#fe3f3f';
 export const LBG_GREY = '#ededed';
+export const OrderColor = '#1c1c1c';
+export const CategoryColor = '#6b6b6b';

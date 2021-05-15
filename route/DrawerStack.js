@@ -12,6 +12,8 @@ import RouteConstant from '../utilities/Constants/RouteConstant';
 import * as ImgConstant from '../utilities/Constants/ImageConstant';
 import ProductDetailView from '../views/ProductDetail/ProductDetailView';
 import ResetPasswordView from '../views/ResetPassword/ResetPasswordView';
+import MyOrders from '../views/MyOrders/MyOrders';
+import OrderDetailView from '../views/OrderDetail/OrderDetailView';
 
 const Stack = createStackNavigator();
 const NavigationDrawerStructure = (props) => {
@@ -86,6 +88,16 @@ function firstScreenStack({navigation}) {
       <Stack.Screen
         name={RouteConstant.ResetPassword}
         component={ResetPasswordView}
+        options={NavigationScreenOption()}
+      />
+      <Stack.Screen
+        name={RouteConstant.Order}
+        component={MyOrders}
+        options={NavigationScreenOption()}
+      />
+      <Stack.Screen
+        name={RouteConstant.OrderDetail}
+        component={OrderDetailView}
         options={NavigationScreenOption()}
       />
     </Stack.Navigator>
