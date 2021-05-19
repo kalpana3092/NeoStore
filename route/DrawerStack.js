@@ -14,6 +14,10 @@ import ProductDetailView from '../views/ProductDetail/ProductDetailView';
 import ResetPasswordView from '../views/ResetPassword/ResetPasswordView';
 import MyOrders from '../views/MyOrders/MyOrders';
 import OrderDetailView from '../views/OrderDetail/OrderDetailView';
+import MyCartView from '../views/MyCart/MyCartView';
+import AddressListView from '../views/AddressView/AddressListView';
+import StoreLocatorView from '../views/StoreLocator/StoreLocatorView';
+import AddressView from '../views/AddressView/AddressView';
 
 const Stack = createStackNavigator();
 const NavigationDrawerStructure = (props) => {
@@ -98,6 +102,26 @@ function firstScreenStack({navigation}) {
       <Stack.Screen
         name={RouteConstant.OrderDetail}
         component={OrderDetailView}
+        options={NavigationScreenOption()}
+      />
+      <Stack.Screen
+        name={RouteConstant.Cart}
+        component={MyCartView}
+        options={NavigationScreenOption()}
+      />
+      <Stack.Screen
+        name={RouteConstant.AddressList}
+        component={AddressListView}
+        options={NavigationScreenOption()}
+      />
+      <Stack.Screen
+        name={RouteConstant.Store}
+        component={StoreLocatorView}
+        options={NavigationScreenOption()}
+      />
+      <Stack.Screen
+        name={RouteConstant.AddAddress}
+        component={AddressView}
         options={NavigationScreenOption()}
       />
     </Stack.Navigator>

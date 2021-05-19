@@ -1,11 +1,10 @@
 import {StyleSheet} from 'react-native';
 import * as Fonts from '../../utilities/Constants/FontConstant';
 import * as Colors from '../../utilities/Constants/ColorConstant';
-import {color} from 'react-native-reanimated';
 
 const RegisterStyle = StyleSheet.create({
   safeArea: {
-    backgroundColor: '#e91c1a',
+    backgroundColor: Colors.APP_TEXT,
     height: '100%',
   },
   scrollView: {

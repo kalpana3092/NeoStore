@@ -9,6 +9,7 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import RegisterViewModel from '../../viewmodel/Register/RegisterViewModel';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import RouteConstant from '../../utilities/Constants/RouteConstant';
+import * as Colors from '../../utilities/Constants/ColorConstant';
 
 const MyAccountView = ({route, navigation}) => {
   //1. First name
@@ -86,7 +87,11 @@ const MyAccountView = ({route, navigation}) => {
     }
   }, [navTitle]);
   return (
-    <SafeAreaView style={RegisterStyle.safeArea}>
+    <SafeAreaView
+      style={[
+        RegisterStyle.safeArea,
+        {backgroundColor: isEdit ? Colors.WHITE : Colors.APP_BG},
+      ]}>
       <KeyboardAwareScrollView
         style={RegisterStyle.scrollView}
         resetScrollToCoords={{x: 0, y: 0}}

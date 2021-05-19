@@ -12,4 +12,6 @@ export default RouteConstant = {
   OrderDetail: 'OrderDetail',
   ForgotPassword: 'ForgotPassword',
   ResetPassword: 'ResetPassword',
+  AddressList: 'AddressList',
+  AddAddress: 'AddAddress',
 };

@@ -19,5 +19,13 @@ const CommonMethods = {
   CheckValidPhNumber: (text) => {
     return text.length < 10;
   },
+
+  CheckValidZipcode: (text) => {
+    return text.length < 6;
+  },
+
+  CheckisNumber: (text) => {
+    return /^\d+$/.test(text);
+  },
 };
 export default CommonMethods;

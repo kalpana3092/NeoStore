@@ -26,6 +26,20 @@ export const RP_SUBMIT = 'SUBMIT';
 export const RP_EDITPROFILE = 'EDIT PROFILE';
 export const RP_RESETPASS = 'RESET PASSWORD';
 export const RP_DOB = 'DOB';
+export const MC_ORDER = 'ORDER NOW';
+export const AD_SAVEADD = 'SAVE ADDRESS';
+export const AD_ADD = 'ADDRESS';
+export const AD_PLACEHOLDERADD = 'Address';
+export const AD_LANDMARK = 'LANDMARK';
+export const AD_PLACEHOLDERLANDMARK = 'Landmark';
+export const AD_CITY = 'CITY';
+export const AD_PLACEHOLDERCITY = 'City';
+export const AD_STATE = 'STATE';
+export const AD_PLACEHOLDERSTATE = 'State';
+export const AD_ZIPCODE = 'ZIP CODE';
+export const AD_PLACEHOLDERZIPCODE = 'Zip Code';
+export const AD_COUNTRY = 'COUNTRY';
+export const AD_PLACEHOLDERCOUNTRY = 'Country';
 export const ERROR_MSG = {
   REGISTER: {
     FNAME: 'Please enter first name',
@@ -36,5 +50,14 @@ export const ERROR_MSG = {
     VPHONE: 'Please enter valid phone number',
     TERMS: 'Please agree to terms and conditions',
     DOB: 'Please enter DOB',
+  },
+  ADDRESS: {
+    ADDRESS: 'Please enter your address',
+    LANDMARK: 'Please enter your landmark',
+    CITY: 'Please enter your city',
+    STATE: 'Please enter your state',
+    ZIPCODE: 'Please enter your zipcode',
+    COUNTRY: 'Please enter your country',
+    VALIDZIP: 'Please enter valid zipcode',
   },
 };
