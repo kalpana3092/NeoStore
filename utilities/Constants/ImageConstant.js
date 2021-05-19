@@ -39,3 +39,6 @@ export const PF_IMG_DOB = require('../../assets/Images/dob_icon/dob_icon.png');
 export const MC_IMG_Arrow = require('../../assets/Images/arrow.png');
 export const IMG_STORELOCATOR = require('../../assets/Images/storelocator/storelocator.png');
 export const IMG_NAVPLUS = require('../../assets/Images/plus/addbutton.png');
+export const AD_IMG_RADIOSELECTED = require('../../assets/Images/radiobutton_selected/radiobutton_selected.png');
+export const AD_IMG_RADIOUNSELECTED = require('../../assets/Images/radiobutton_unselected/radiobutton_unselected.png');
+export const AD_IMG_REMOVE = require('../../assets/Images/remove_button/remove_button.png');

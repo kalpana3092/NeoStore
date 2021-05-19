@@ -1,7 +1,6 @@
 import React from 'react';
 import {Image, View, Text, TouchableOpacity} from 'react-native';
 import * as ImgConstant from '../../../utilities/Constants/ImageConstant';
-import CustomRatingView from '../CustomRatingView/CustomRatingView';
 import StoreLocatorItemStyle from './StoreLocatorItem.style';
 
 const StoreLocatorItem = (prop) => {

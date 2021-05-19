@@ -40,6 +40,7 @@ export const AD_ZIPCODE = 'ZIP CODE';
 export const AD_PLACEHOLDERZIPCODE = 'Zip Code';
 export const AD_COUNTRY = 'COUNTRY';
 export const AD_PLACEHOLDERCOUNTRY = 'Country';
+export const PLACE_ORDER = 'PLACE ORDER';
 export const ERROR_MSG = {
   REGISTER: {
     FNAME: 'Please enter first name',
