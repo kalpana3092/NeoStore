@@ -10,6 +10,11 @@ const StoreLocatorViewStyle = StyleSheet.create({
   mapView: {
     height: size.height * 0.3,
     backgroundColor: Colors.GREY,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+  map: {
+    ...StyleSheet.absoluteFillObject,
   },
 });
 export default StoreLocatorViewStyle;

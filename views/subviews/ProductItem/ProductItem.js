@@ -3,7 +3,7 @@ import {Image, View, Text, TouchableOpacity} from 'react-native';
 import ProductItemStyle from './ProductItem.style';
 import * as ImgConstant from '../../../utilities/Constants/ImageConstant';
 import CustomRatingView from '../CustomRatingView/CustomRatingView';
-
+// import {Dropdown} from 'react-native-material-dropdown-v2-fixed';
 const ProductItem = (prop) => {
   return (
     <TouchableOpacity

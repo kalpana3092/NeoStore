@@ -41,6 +41,7 @@ export const AD_PLACEHOLDERZIPCODE = 'Zip Code';
 export const AD_COUNTRY = 'COUNTRY';
 export const AD_PLACEHOLDERCOUNTRY = 'Country';
 export const PLACE_ORDER = 'PLACE ORDER';
+export const RATE_NOW = 'RATE NOW';
 export const ERROR_MSG = {
   REGISTER: {
     FNAME: 'Please enter first name',
@@ -61,4 +62,8 @@ export const ERROR_MSG = {
     COUNTRY: 'Please enter your country',
     VALIDZIP: 'Please enter valid zipcode',
   },
+};
+export const ScreenNames = {
+  qtyPopup: 'QTY Popup',
+  ratePopup: 'Rate popup',
 };

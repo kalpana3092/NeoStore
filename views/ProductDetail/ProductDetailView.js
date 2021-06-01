@@ -12,6 +12,8 @@ import ProductDetailStyle from './ProductDetailView.style';
 import * as Colors from '../../utilities/Constants/ColorConstant';
 import CustomRatingView from '../subviews/CustomRatingView/CustomRatingView';
 import * as ImgConstant from '../../utilities/Constants/ImageConstant';
+import * as StringConstant from '../../utilities/Constants/StringConstant';
+import QtyRatePopup from '../subviews/Popup/QtyRatePopup/QtyRatePopup';
 const data = [
   {
     id: '1',
@@ -28,9 +30,11 @@ const data = [
 ];
 const ProductDetailView = ({route, navigation}) => {
   const [selectedId, setSelectedId] = useState('1');
+  const [selectedPopupName, setSelectedPopupName] = useState('');
   const [selectedImage, setSelectedImage] = useState(
     ImgConstant.HM_IMG_SLIDER1,
   );
+  const [qtyRatePopupVisible, setQtyRatePopupVisible] = useState(false);
   const navTitle = route.params.title;
   useEffect(() => {
     if (navTitle != undefined) {
@@ -39,9 +43,19 @@ const ProductDetailView = ({route, navigation}) => {
       });
     }
   }, [navTitle]);
+  const onClickBuy = () => {
+    setSelectedPopupName(StringConstant.ScreenNames.qtyPopup);
+    setQtyRatePopupVisible(true);
+  };
+  const onClickRate = () => {
+    setSelectedPopupName(StringConstant.ScreenNames.ratePopup);
+    setQtyRatePopupVisible(true);
+  };
   return (
     <SafeAreaView style={ProductDetailStyle.mainView}>
-      <ScrollView style={ProductDetailStyle.scrollView}>
+      <ScrollView
+        style={ProductDetailStyle.scrollView}
+        showsVerticalScrollIndicator={false}>
         <View style={ProductDetailStyle.headerView}>
           <Text style={ProductDetailStyle.name}>{navTitle}</Text>
           <Text style={ProductDetailStyle.category}>Category - Table</Text>
@@ -118,13 +132,27 @@ const ProductDetailView = ({route, navigation}) => {
           </View>
         </View>
       </ScrollView>
+      <QtyRatePopup
+        image={ImgConstant.HM_IMG_SLIDER1}
+        isVisible={qtyRatePopupVisible}
+        name={navTitle}
+        screenType={selectedPopupName}
+        onClose={(quantity) => {
+          setQtyRatePopupVisible(false);
+          if (quantity != undefined) {
+            if (quantity.length > 0) {
+              console.log(quantity);
+            }
+          }
+        }}
+      />
       <View style={ProductDetailStyle.footerView}>
         <TouchableOpacity
           style={[
             ProductDetailStyle.buttonView,
             {marginRight: 5, backgroundColor: Colors.APP_TEXT},
           ]}
-          onPress={() => console.log('buy')}>
+          onPress={onClickBuy}>
           <Text style={[ProductDetailStyle.buttonText, {color: Colors.WHITE}]}>
             BUY NOW
           </Text>
@@ -134,7 +162,7 @@ const ProductDetailView = ({route, navigation}) => {
             ProductDetailStyle.buttonView,
             {marginLeft: 5, backgroundColor: Colors.EL_GREY},
           ]}
-          onPress={() => console.log('rate')}>
+          onPress={onClickRate}>
           <Text style={[ProductDetailStyle.buttonText, {color: Colors.GREY}]}>
             RATE
           </Text>

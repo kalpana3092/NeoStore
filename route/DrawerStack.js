@@ -40,6 +40,7 @@ const NavigationDrawerStructure = (props) => {
 const NavigationScreenOption = () => {
   return {
     headerShown: true,
+    headerTitleAlign: 'center',
     headerStyle: {
       backgroundColor: '#e91c1a',
     },
@@ -59,6 +60,7 @@ function firstScreenStack({navigation}) {
         name={RouteConstant.Home}
         component={HomeView}
         options={{
+          headerTitleAlign: 'center',
           title: 'NeoSTORE', //Set Header Title
           headerLeft: () => (
             <NavigationDrawerStructure navigationProps={navigation} />

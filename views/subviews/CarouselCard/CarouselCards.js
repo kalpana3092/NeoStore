@@ -5,6 +5,9 @@ import * as Colors from '../../../utilities/Constants/ColorConstant';
 import HomeViewModel from '../../../viewmodel/Home/HomeViewModel';
 import CarouselCardItem, {SLIDER_WIDTH, ITEM_WIDTH} from './CarouselCardItem';
 const height = Dimensions.get('window').height;
+const size = Dimensions.get('window').width / 2;
+const numColumns = 2;
+const margine = 8;
 
 const data = HomeViewModel.GetCaroselData();
 const CarouselCards = () => {

@@ -24,6 +24,7 @@ const RouteStack = () => {
             fontSize: 25,
           },
           headerBackTitle: ' ',
+          headerTitleAlign: 'center',
         }}>
         <Stack.Screen name={RouteConstant.Login} component={LoginView} />
         <Stack.Screen

@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import {SafeAreaView, View, FlatList} from 'react-native';
+import MapView from 'react-native-maps';
 import StoreLocatorItem from '../subviews/StoreLocatorItem/StoreLocatorItem';
 import StoreLocatorViewStyle from './StoreLocatorView.style';
 const data = [
@@ -32,10 +33,22 @@ const StoreLocatorView = ({route, navigation}) => {
   return (
     <SafeAreaView>
       <View style={StoreLocatorViewStyle.containerView}>
-        <View style={StoreLocatorViewStyle.mapView}></View>
         <FlatList
           data={data}
           keyExtractor={(item) => item.id}
+          ListHeaderComponent={
+            <View style={StoreLocatorViewStyle.mapView}>
+              <MapView
+                // provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+                style={StoreLocatorViewStyle.map}
+                region={{
+                  latitude: 37.78825,
+                  longitude: -122.4324,
+                  latitudeDelta: 0.015,
+                  longitudeDelta: 0.0121,
+                }}></MapView>
+            </View>
+          }
           renderItem={(data) => (
             <StoreLocatorItem
               id={data.item.id}

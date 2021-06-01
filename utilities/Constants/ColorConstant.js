@@ -11,3 +11,4 @@ export const APP_INPUT = '#fe3f3f';
 export const LBG_GREY = '#ededed';
 export const OrderColor = '#1c1c1c';
 export const CategoryColor = '#6b6b6b';
+export const PopupTitleColor = '#2c2b2b';
