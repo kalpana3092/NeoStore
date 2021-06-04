@@ -61,8 +61,8 @@ const MyCartItemStyle = StyleSheet.create({
   },
 
   arrowimage: {
-    height: 25,
-    width: 25,
+    height: 20,
+    width: 20,
     marginLeft: 3,
   },
 });

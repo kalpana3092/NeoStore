@@ -27,5 +27,11 @@ const CommonMethods = {
   CheckisNumber: (text) => {
     return /^\d+$/.test(text);
   },
+
+  range: (start, end) => {
+    return Array(end - start + 1)
+      .fill()
+      .map((_, idx) => start + idx);
+  },
 };
 export default CommonMethods;
