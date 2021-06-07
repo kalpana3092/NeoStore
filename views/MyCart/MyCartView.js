@@ -6,12 +6,15 @@ import {
   Text,
   View,
   TouchableOpacity,
+  Image,
 } from 'react-native';
 import OrderDetailStyle from '../OrderDetail/OrderDetailView.style';
 import MyCartStyle from './MyCartView.style';
 import RouteConstant from '../../utilities/Constants/RouteConstant';
 import * as Strings from '../../utilities/Constants/StringConstant';
 import MyCartItem from '../subviews/MyCartItem/MyCartItem';
+import * as ImgConstant from '../../utilities/Constants/ImageConstant';
+import {SwipeListView} from 'react-native-swipe-list-view';
 const data = [
   {
     id: '1',
@@ -35,6 +38,7 @@ const data = [
     qty: '2',
   },
 ];
+
 const MyCartView = ({route, navigation}) => {
   const navTitle = route.params.title;
   useEffect(() => {
@@ -44,17 +48,22 @@ const MyCartView = ({route, navigation}) => {
       });
     }
   }, [navTitle]);
+  const renderSeparator = () => {
+    return <View style={OrderDetailStyle.horizontalLine} />;
+  };
   return (
     <SafeAreaView>
       <View style={OrderDetailStyle.mainView}>
-        <FlatList
+        <SwipeListView
           data={data}
           keyExtractor={(item) => item.id}
+          ItemSeparatorComponent={renderSeparator}
           ListFooterComponent={
             <View>
+              <View style={OrderDetailStyle.horizontalLine} />
               <View style={OrderDetailStyle.footerView}>
                 <Text style={[OrderDetailStyle.totalText, {marginLeft: 15}]}>
-                  Totol
+                  Total
                 </Text>
                 <Text style={[OrderDetailStyle.totalText, {marginRight: 15}]}>
                   ₹ 100
@@ -79,6 +88,29 @@ const MyCartView = ({route, navigation}) => {
               category={data.item.category}
             />
           )}
+          renderHiddenItem={(data, rowMap) => (
+            <View
+              style={{
+                alignItems: 'center',
+                flex: 1,
+                flexDirection: 'row',
+                justifyContent: 'flex-end',
+                margin: 5,
+                borderRadius: 5,
+              }}>
+              <TouchableOpacity
+                onPress={(item) => {
+                  console.log(data.item);
+                }}>
+                <Image
+                  source={ImgConstant.MC_IMG_DELETE}
+                  style={{height: 80, width: 80}}
+                />
+              </TouchableOpacity>
+            </View>
+          )}
+          leftOpenValue={0}
+          rightOpenValue={-95}
         />
       </View>
     </SafeAreaView>

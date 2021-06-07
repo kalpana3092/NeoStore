@@ -4,12 +4,13 @@ import * as ImgConstant from '../../../utilities/Constants/ImageConstant';
 import MyCartItemStyle from './MyCartItem.style';
 import ModalDropdown from 'react-native-modal-dropdown';
 import CommonMethods from '../../../utilities/Common/CommonMethods';
+
 const qtyArray = CommonMethods.range(1, 10);
 
 const MyCartItem = (prop) => {
   const [quantity, setQuantity] = useState(prop.qty);
   return (
-    <View>
+    <View style={{backgroundColor: 'white'}}>
       <View style={MyCartItemStyle.conatinerView}>
         <Image
           style={MyCartItemStyle.image}
@@ -42,7 +43,6 @@ const MyCartItem = (prop) => {
           </View>
         </View>
       </View>
-      <View style={MyCartItemStyle.horizontalLine} />
     </View>
   );
 };
