@@ -7,6 +7,7 @@ const DrawerItemStyle = StyleSheet.create({
   item: {
     flexDirection: 'row',
     padding: 10,
+    justifyContent: 'space-between',
   },
   title: {
     fontSize: 20,
@@ -19,6 +20,19 @@ const DrawerItemStyle = StyleSheet.create({
     width: 25,
     marginHorizontal: 15,
     resizeMode: 'contain',
+  },
+  cartCount: {
+    fontSize: 13,
+    fontFamily: Fonts.GOTHAM_BOOK,
+    color: Colors.WHITE,
+  },
+  cartCountBGView: {
+    height: 40,
+    width: 40,
+    borderRadius: 20,
+    backgroundColor: Colors.APP_TEXT,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 export default DrawerItemStyle;
