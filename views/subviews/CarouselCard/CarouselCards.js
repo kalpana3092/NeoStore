@@ -1,21 +1,31 @@
 import React from 'react';
-import {View, Dimensions} from 'react-native';
+import {View, Dimensions, Platform, StatusBar} from 'react-native';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {useHeaderHeight} from '@react-navigation/stack';
 import Carousel, {Pagination} from 'react-native-snap-carousel';
 import * as Colors from '../../../utilities/Constants/ColorConstant';
 import HomeViewModel from '../../../viewmodel/Home/HomeViewModel';
 import CarouselCardItem, {SLIDER_WIDTH, ITEM_WIDTH} from './CarouselCardItem';
-const height = Dimensions.get('window').height;
-const size = Dimensions.get('window').width / 2;
-const numColumns = 2;
-const margine = 8;
+const size = Dimensions.get('window');
 
 const data = HomeViewModel.GetCaroselData();
 const CarouselCards = () => {
   const [index, setIndex] = React.useState(0);
   const isCarousel = React.useRef(null);
-
+  const insets = useSafeAreaInsets();
+  const headerHeight = useHeaderHeight();
   return (
-    <View style={{height: height * 0.33, marginBottom: 10}}>
+    <View
+      style={{
+        height:
+          size.height -
+          (size.width +
+            20 +
+            headerHeight +
+            insets.bottom +
+            (Platform.OS === 'android' ? StatusBar.currentHeight : 0)),
+        marginBottom: 10,
+      }}>
       <Carousel
         layout="stack"
         layoutCardOffset={9}
