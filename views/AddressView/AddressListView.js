@@ -64,15 +64,15 @@ const AddressListView = (prop) => {
             </View>
           }
           ListFooterComponent={
-            <View>
-              <TouchableOpacity
-                style={MyCartStyle.orderView}
-                onPress={() => {
-                  prop.navigation.navigate(RouteConstant.AddressList);
-                }}>
+            <TouchableOpacity
+              style={MyCartStyle.orderView}
+              onPress={() => {
+                prop.navigation.navigate(RouteConstant.AddressList);
+              }}>
+              <View>
                 <Text style={MyCartStyle.orderText}>{Strings.PLACE_ORDER}</Text>
-              </TouchableOpacity>
-            </View>
+              </View>
+            </TouchableOpacity>
           }
           renderItem={(data) => (
             <AddressListItem

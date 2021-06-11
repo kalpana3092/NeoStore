@@ -8,6 +8,8 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import RegisterViewModel from '../../viewmodel/Register/RegisterViewModel';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import RouteConstant from '../../utilities/Constants/RouteConstant';
+import NetworkReachability from '../../utilities/Common/NetworkReachability';
+import LoaderView from '../subviews/LoaderView/LoaderView';
 
 const RegisterView = (props) => {
   //1. First name
@@ -33,6 +35,8 @@ const RegisterView = (props) => {
 
   //7. Terms & Condition
   const [TermsSelected, SetTermsCondition] = useState(false);
+
+  const [isLoading, setLoading] = useState(false);
 
   const PaddingView = () => {
     return <View style={{height: 20}} />;
@@ -126,11 +130,33 @@ const RegisterView = (props) => {
       Alert.alert(Strings.LP_NEOSTORE, Strings.ERROR_MSG.REGISTER.TERMS);
       return;
     }
-    props.navigation.navigate(RouteConstant.Home);
+    NetworkReachability.CheckConnectivity().then((state) => {
+      if (state.isConnected) {
+        setLoading(true);
+        RegisterViewModel.RegisterUser(
+          Fname,
+          Lname,
+          Email,
+          Password,
+          CPassword,
+          Gender == 'Male' ? 'M' : 'F',
+          PNumber,
+        ).then((errorMsg) => {
+          setLoading(false);
+          if (errorMsg != '') {
+            Alert.alert(Strings.LP_NEOSTORE, errorMsg);
+          }
+        });
+      } else {
+        Alert.alert(Strings.LP_NEOSTORE, Strings.NO_INTERNET);
+      }
+    });
   };
+
   const keyboardVerticalOffset = Platform.OS === 'ios' ? 64 : 0;
   return (
     <SafeAreaView style={RegisterStyle.safeArea}>
+      <LoaderView visible={isLoading} />
       <KeyboardAwareScrollView
         style={RegisterStyle.scrollView}
         resetScrollToCoords={{x: 0, y: 0}}

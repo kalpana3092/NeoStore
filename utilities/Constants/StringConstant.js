@@ -67,3 +67,5 @@ export const ScreenNames = {
   qtyPopup: 'QTY Popup',
   ratePopup: 'Rate popup',
 };
+export const Error_Msg = 'Something went wrong...';
+export const NO_INTERNET = 'No internet connection';

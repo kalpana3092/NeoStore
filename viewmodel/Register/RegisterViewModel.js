@@ -1,3 +1,4 @@
+import RegisterService from '../../service/RegisterService';
 import CommonMethods from '../../utilities/Common/CommonMethods';
 
 const RegisterViewModel = {
@@ -19,6 +20,34 @@ const RegisterViewModel = {
 
   ValidateConfirmPass: (pass, confmPass) => {
     return CommonMethods.CheckConfirmPassword(pass, confmPass);
+  },
+  RegisterUser: async (
+    fName,
+    lName,
+    email,
+    password,
+    cPassword,
+    gender,
+    phoneNumber,
+  ) => {
+    const result = await RegisterService.RegisterUser(
+      fName,
+      lName,
+      email,
+      password,
+      cPassword,
+      gender,
+      phoneNumber,
+    ).then((responsedata) => {
+      if (responsedata.status === 200) {
+        console.log('insideviewmodel', responsedata);
+        return '';
+      } else {
+        console.log(responsedata);
+        return responsedata.user_msg;
+      }
+    });
+    return result;
   },
 };
 export default RegisterViewModel;

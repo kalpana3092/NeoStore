@@ -1,6 +1,12 @@
 import React, {Component} from 'react';
-import {View, FlatList, SafeAreaView, Image} from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import {
+  View,
+  FlatList,
+  SafeAreaView,
+  Image,
+  TouchableHighlight,
+} from 'react-native';
+import {WHITE} from '../../utilities/Constants/ColorConstant';
 import * as ImageConstant from '../../utilities/Constants/ImageConstant';
 import RouteConstant from '../../utilities/Constants/RouteConstant';
 import HomeStyle from '../Home/HomeView.style';
@@ -21,7 +27,9 @@ const HomeView = (prop) => {
       <FlatList
         data={data}
         renderItem={({item}) => (
-          <TouchableOpacity
+          <TouchableHighlight
+            activeOpacity={1.0}
+            underlayColor={WHITE}
             onPress={() =>
               prop.navigation.navigate(RouteConstant.Product, {
                 title: item.title,
@@ -30,7 +38,7 @@ const HomeView = (prop) => {
             <View style={HomeStyle.itemContainer}>
               <Image source={item.value} style={HomeStyle.imageStyle} />
             </View>
-          </TouchableOpacity>
+          </TouchableHighlight>
         )}
         keyExtractor={(item) => item.id}
         numColumns={numColumns}
