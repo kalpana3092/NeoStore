@@ -23,6 +23,7 @@ const EntryField = (props) => {
         keyboardType={KeyboardType(props.keyboardType)}
         secureTextEntry={props.isPassword}
         autoCorrect={false}
+        textContentType={props.isPassword ? 'oneTimeCode' : 'none'}
         onChangeText={props.onChangeText}
         editable={props.isEditable == undefined ? true : props.isEditable}
       />

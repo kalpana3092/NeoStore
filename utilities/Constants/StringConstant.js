@@ -69,3 +69,7 @@ export const ScreenNames = {
 };
 export const Error_Msg = 'Something went wrong...';
 export const NO_INTERNET = 'No internet connection';
+
+export const LocalStorageKeys = {
+  kUserData: 'kUserData',
+};

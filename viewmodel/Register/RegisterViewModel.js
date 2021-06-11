@@ -1,5 +1,7 @@
 import RegisterService from '../../service/RegisterService';
 import CommonMethods from '../../utilities/Common/CommonMethods';
+import LocalStorageManager from '../../utilities/Common/LocalStorageManager';
+import {LocalStorageKeys} from '../../utilities/Constants/StringConstant';
 
 const RegisterViewModel = {
   ValidateEmail: (email) => {
@@ -41,6 +43,10 @@ const RegisterViewModel = {
     ).then((responsedata) => {
       if (responsedata.status === 200) {
         console.log('insideviewmodel', responsedata);
+        LocalStorageManager.SaveData(
+          LocalStorageKeys.kUserData,
+          responsedata.data,
+        );
         return '';
       } else {
         console.log(responsedata);

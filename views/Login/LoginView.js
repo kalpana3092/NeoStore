@@ -123,6 +123,7 @@ const LoginView = (props) => {
             secureTextEntry
             placeholder={Strings.LP_PLACEHOLDER_PASSWORD}
             placeholderTextColor="white"
+            textContentType="oneTimeCode"
             onChangeText={(text) => setPassword(text)}
           />
         </View>
