@@ -8,10 +8,15 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import RegisterViewModel from '../../viewmodel/Register/RegisterViewModel';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import RouteConstant from '../../utilities/Constants/RouteConstant';
+import ForgotPasswordViewModel from '../../viewmodel/ForgotPassword/ForgotPasswordViewModel';
+import NetworkReachability from '../../utilities/Common/NetworkReachability';
+import LoaderView from '../subviews/LoaderView/LoaderView';
 
 const ForgotPasswordView = (props) => {
-  //3. Email
+  //1. Email
   const [Email, SetEmail] = useState('');
+
+  const [loading, setLoading] = useState(false);
 
   const forgotButtonClick = () => {
     if (RegisterViewModel.ValidateEmptyString(Email)) {
@@ -23,11 +28,22 @@ const ForgotPasswordView = (props) => {
       Alert.alert(Strings.LP_NEOSTORE, Strings.ER_EMAIL);
       return;
     }
-    Alert.alert(Strings.LP_NEOSTORE, 'email sent');
+    NetworkReachability.CheckConnectivity().then((state) => {
+      if (state.isConnected) {
+        setLoading(true);
+        ForgotPasswordViewModel.ForgotPassword(Email).then((message) => {
+          setLoading(false);
+          Alert.alert(Strings.LP_NEOSTORE, message);
+        });
+      } else {
+        Alert.alert(Strings.LP_NEOSTORE, Strings.NO_INTERNET);
+      }
+    });
   };
   const keyboardVerticalOffset = Platform.OS === 'ios' ? 64 : 0;
   return (
     <SafeAreaView style={RegisterStyle.safeArea}>
+      <LoaderView visible={loading} />
       <KeyboardAwareScrollView
         style={RegisterStyle.scrollView}
         resetScrollToCoords={{x: 0, y: 0}}
