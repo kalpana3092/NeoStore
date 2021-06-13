@@ -1,11 +1,16 @@
-import React, {Component} from 'react';
+import React, {Component, useEffect} from 'react';
 import {
   View,
   FlatList,
   SafeAreaView,
   Image,
   TouchableHighlight,
+  Platform,
+  StatusBar,
+  Dimensions,
 } from 'react-native';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {useHeaderHeight} from '@react-navigation/stack';
 import {WHITE} from '../../utilities/Constants/ColorConstant';
 import * as ImageConstant from '../../utilities/Constants/ImageConstant';
 import RouteConstant from '../../utilities/Constants/RouteConstant';
@@ -19,11 +24,20 @@ const data = [
   {id: 'd', value: ImageConstant.HM_IMG_TABLE, title: 'Tables'},
 ];
 const numColumns = 2;
-
+const size = Dimensions.get('window');
 const HomeView = (prop) => {
+  const headerHeight = useHeaderHeight();
+  const safeareainsets = useSafeAreaInsets();
+  const height =
+    size.height -
+    (size.width +
+      20 +
+      headerHeight +
+      (Platform.OS === 'android' ? StatusBar.currentHeight : 0) +
+      safeareainsets.bottom);
   return (
     <SafeAreaView>
-      <CarouselCards />
+      <CarouselCards viewHeight={height} />
       <FlatList
         data={data}
         renderItem={({item}) => (

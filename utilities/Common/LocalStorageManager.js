@@ -25,5 +25,14 @@ const LocalStorageManager = {
       return error;
     }
   },
+
+  RemoveData: async (key) => {
+    try {
+      await AsyncStorage.removeItem(key);
+      return true;
+    } catch (exception) {
+      return false;
+    }
+  },
 };
 export default LocalStorageManager;

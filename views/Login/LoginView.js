@@ -16,22 +16,14 @@ import RouteConstant from '../../utilities/Constants/RouteConstant';
 import NetworkReachability from '../../utilities/Common/NetworkReachability';
 import LoaderView from '../subviews/LoaderView/LoaderView';
 import {useEffect} from 'react';
+import {useDispatch} from 'react-redux';
+import {getLoginStatus} from '../../redux/actions/LoginAction';
 
 const LoginView = (props) => {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     email: '',
-  //     password: '',
-  //   };
-  // }
-  // componentDidMount() {
-  //   this.props.navigation.setOptions({headerShown: false});
-  // }
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setLoading] = useState(false);
-
+  const dispatch = useDispatch();
   useEffect(() => {
     props.navigation.setOptions({
       headerShown: false,
@@ -67,6 +59,8 @@ const LoginView = (props) => {
           setLoading(false);
           if (errorMsg != '') {
             Alert.alert(Strings.LP_NEOSTORE, errorMsg);
+          } else {
+            dispatch(getLoginStatus(true));
           }
         });
       } else {

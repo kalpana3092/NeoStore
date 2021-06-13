@@ -6,12 +6,28 @@
  * @flow strict-local
  */
 import 'react-native-gesture-handler';
-import React from 'react';
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import RouteStack from './route/RouteStack';
 import DrawerStack from './route/DrawerStack';
-const IsLogin = false;
+import CommonMethods from './utilities/Common/CommonMethods';
+import {getLoginStatus} from './redux/actions/LoginAction';
+
 const App = () => {
-  return IsLogin ? <DrawerStack /> : <RouteStack />;
+  const isLogin = useSelector((state) => state.loginReducer.isLogin);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    CommonMethods.CheckIsLogin().then((loginStatus) => {
+      dispatch(getLoginStatus(loginStatus));
+    });
+  }, [isLogin]);
+  return isLogin != undefined ? (
+    isLogin ? (
+      <DrawerStack />
+    ) : (
+      <RouteStack />
+    )
+  ) : null;
 };
 
 export default App;

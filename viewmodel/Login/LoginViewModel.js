@@ -20,14 +20,12 @@ const LoginViewModel = {
     const result = await LoginService.LoginUser(email, password).then(
       (responsedata) => {
         if (responsedata.status === 200) {
-          console.log('insideviewmodel', responsedata.data);
           LocalStorageManager.SaveData(
             LocalStorageKeys.kUserData,
             responsedata.data,
           );
           return '';
         } else {
-          console.log(responsedata);
           return responsedata.user_msg;
         }
       },

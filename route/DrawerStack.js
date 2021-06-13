@@ -167,10 +167,6 @@ const DrawerStack = () => {
         drawerType="back"
         drawerContent={(props) => <DrawerMenu {...props} />}>
         <Drawer.Screen name={RouteConstant.Home} component={firstScreenStack} />
-        {/* <Drawer.Screen
-          name={RouteConstant.Product}
-          component={secondScreenStack}
-        /> */}
       </Drawer.Navigator>
     </NavigationContainer>
   );

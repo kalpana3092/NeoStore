@@ -1,8 +1,16 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Image, Text} from 'react-native';
 import * as ImgConstant from '../../utilities/Constants/ImageConstant';
+import DrawerViewModel from '../../viewmodel/Drawer/DrawerViewModel';
 import DrawerHeaderStyle from './DrawerHeader.style';
+
 const DrawerHeader = () => {
+  const [userData, setUserData] = useState({});
+  useEffect(() => {
+    DrawerViewModel.GetUserData().then((user) => {
+      setUserData(user);
+    });
+  });
   return (
     <View style={DrawerHeaderStyle.containerStyle}>
       <Image
@@ -10,10 +18,10 @@ const DrawerHeader = () => {
         style={DrawerHeaderStyle.imageHeader}
       />
       <Text style={[DrawerHeaderStyle.textStyle, {fontSize: 20}]}>
-        Kalpana Rane
+        {userData.first_name + ' ' + userData.last_name}
       </Text>
       <Text style={[DrawerHeaderStyle.textStyle, {fontSize: 15}]}>
-        kalpana.rane@neosoftmail.com
+        {userData.email}
       </Text>
     </View>
   );

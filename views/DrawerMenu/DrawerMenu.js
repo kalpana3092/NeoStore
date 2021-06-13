@@ -5,10 +5,14 @@ import DrawerHeader from './DrawerHeader';
 import DrawerItem from './DrawerItem';
 import * as Colors from '../../utilities/Constants/ColorConstant';
 import DrawerMenuStyle from './DrawerMenu.style';
-
+import LocalStorageManager from '../../utilities/Common/LocalStorageManager';
+import {LocalStorageKeys} from '../../utilities/Constants/StringConstant';
+import {useDispatch} from 'react-redux';
+import {getLoginStatus} from '../../redux/actions/LoginAction';
 const DrawerMenu = (props) => {
   const [selectedId, SetSelectedId] = useState(-1);
   const MenuItems = DrawerViewModel.GetMenuItems();
+  const dispatch = useDispatch();
 
   const renderItem = ({item}) => {
     const backgroundColor = Colors.MENU_BG;
@@ -23,7 +27,13 @@ const DrawerMenu = (props) => {
           if (Page != undefined) {
             if (Page.id != undefined) {
               if (Page.id === '10') {
-                console.log('logout');
+                LocalStorageManager.RemoveData(LocalStorageKeys.kUserData).then(
+                  (isdeleted) => {
+                    if (isdeleted) {
+                      dispatch(getLoginStatus(false));
+                    }
+                  },
+                );
                 return;
               }
             }

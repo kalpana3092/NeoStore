@@ -1,5 +1,7 @@
 import RouteConstant from '../../utilities/Constants/RouteConstant';
 import * as ImgConstant from '../../utilities/Constants/ImageConstant';
+import LocalStorageManager from '../../utilities/Common/LocalStorageManager';
+import {LocalStorageKeys} from '../../utilities/Constants/StringConstant';
 const DrawerViewModel = {
   GetMenuItems: () => {
     return [
@@ -93,6 +95,15 @@ const DrawerViewModel = {
 
       return returnItem;
     }
+  },
+
+  GetUserData: () => {
+    const user = LocalStorageManager.GetStoredData(
+      LocalStorageKeys.kUserData,
+    ).then((userdata) => {
+      return userdata;
+    });
+    return user;
   },
 };
 export default DrawerViewModel;

@@ -7,10 +7,10 @@ import * as Strings from '../../utilities/Constants/StringConstant';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import RegisterViewModel from '../../viewmodel/Register/RegisterViewModel';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import RouteConstant from '../../utilities/Constants/RouteConstant';
 import NetworkReachability from '../../utilities/Common/NetworkReachability';
 import LoaderView from '../subviews/LoaderView/LoaderView';
-
+import {useDispatch} from 'react-redux';
+import {getLoginStatus} from '../../redux/actions/LoginAction';
 const RegisterView = (props) => {
   //1. First name
   const [Fname, SetFname] = useState('');
@@ -37,6 +37,8 @@ const RegisterView = (props) => {
   const [TermsSelected, SetTermsCondition] = useState(false);
 
   const [isLoading, setLoading] = useState(false);
+
+  const dispatch = useDispatch();
 
   const PaddingView = () => {
     return <View style={{height: 20}} />;
@@ -145,6 +147,8 @@ const RegisterView = (props) => {
           setLoading(false);
           if (errorMsg != '') {
             Alert.alert(Strings.LP_NEOSTORE, errorMsg);
+          } else {
+            dispatch(getLoginStatus(true));
           }
         });
       } else {
