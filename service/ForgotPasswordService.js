@@ -6,7 +6,7 @@ const ForgotPasswordService = {
     var data = new FormData();
     data.append('email', email);
     const endPoint = APIConstant.forgotPassword;
-    return APIManager.CallPostApi(data, endPoint);
+    return APIManager.CallApi(data, endPoint, 'post', false);
   },
 };
 export default ForgotPasswordService;

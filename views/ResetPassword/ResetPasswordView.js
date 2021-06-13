@@ -8,6 +8,9 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import RegisterViewModel from '../../viewmodel/Register/RegisterViewModel';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import RouteConstant from '../../utilities/Constants/RouteConstant';
+import NetworkReachability from '../../utilities/Common/NetworkReachability';
+import LoaderView from '../subviews/LoaderView/LoaderView';
+import ResetPasswordViewModel from '../../viewmodel/ResetPassword/ResetPasswordViewModel';
 
 const ResetPasswordView = (props) => {
   //1. Password
@@ -19,6 +22,7 @@ const ResetPasswordView = (props) => {
   //3. Confirm Password
   const [CPassword, SetCPassword] = useState('');
 
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     // if (navTitle != undefined) {
     props.navigation.setOptions({
@@ -56,11 +60,27 @@ const ResetPasswordView = (props) => {
       Alert.alert(Strings.LP_NEOSTORE, Strings.ERROR_MSG.REGISTER.CPASS);
       return;
     }
-    Alert.alert(Strings.LP_NEOSTORE, 'Password reset');
+
+    NetworkReachability.CheckConnectivity().then((state) => {
+      if (state.isConnected) {
+        setLoading(true);
+        ResetPasswordViewModel.ChangePassword(
+          Password,
+          NewPassword,
+          CPassword,
+        ).then((message) => {
+          setLoading(false);
+          Alert.alert(Strings.LP_NEOSTORE, message);
+        });
+      } else {
+        Alert.alert(Strings.LP_NEOSTORE, Strings.NO_INTERNET);
+      }
+    });
   };
   const keyboardVerticalOffset = Platform.OS === 'ios' ? 64 : 0;
   return (
     <SafeAreaView style={RegisterStyle.safeArea}>
+      <LoaderView visible={loading} />
       <KeyboardAwareScrollView
         style={RegisterStyle.scrollView}
         resetScrollToCoords={{x: 0, y: 0}}

@@ -20,7 +20,7 @@ const RegisterService = {
     data.append('gender', gender);
     data.append('phone_no', phoneNumber);
     const endPoint = APIConstant.register;
-    return APIManager.CallPostApi(data, endPoint);
+    return APIManager.CallApi(data, endPoint, 'post', false);
   },
 };
 export default RegisterService;

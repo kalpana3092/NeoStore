@@ -7,7 +7,7 @@ const LoginService = {
     data.append('email', email);
     data.append('password', password);
     const endPoint = APIConstant.login;
-    return APIManager.CallPostApi(data, endPoint);
+    return APIManager.CallApi(data, endPoint, 'post', false);
   },
 };
 export default LoginService;
