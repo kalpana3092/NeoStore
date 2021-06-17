@@ -7,7 +7,6 @@ const ResetPasswordService = {
     data.append('old_password', oldPass);
     data.append('password', password);
     data.append('confirm_password', cPass);
-    console.log(oldPass, password, cPass);
     const endPoint = APIConstant.changePassword;
     return APIManager.CallApi(data, endPoint, 'post');
   },

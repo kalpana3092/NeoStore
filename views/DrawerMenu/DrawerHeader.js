@@ -7,10 +7,12 @@ import DrawerHeaderStyle from './DrawerHeader.style';
 const DrawerHeader = () => {
   const [userData, setUserData] = useState({});
   useEffect(() => {
+    console.log('agbs');
     DrawerViewModel.GetUserData().then((user) => {
       setUserData(user);
     });
-  });
+  }, []);
+
   return (
     <View style={DrawerHeaderStyle.containerStyle}>
       <Image

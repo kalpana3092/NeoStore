@@ -22,6 +22,7 @@ const EntryField = (props) => {
         placeholderTextColor={Colors.WHITE}
         keyboardType={KeyboardType(props.keyboardType)}
         secureTextEntry={props.isPassword}
+        value={props.value}
         autoCorrect={false}
         textContentType={props.isPassword ? 'oneTimeCode' : 'none'}
         onChangeText={props.onChangeText}

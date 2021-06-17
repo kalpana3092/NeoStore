@@ -10,6 +10,9 @@ import RegisterViewModel from '../../viewmodel/Register/RegisterViewModel';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import RouteConstant from '../../utilities/Constants/RouteConstant';
 import * as Colors from '../../utilities/Constants/ColorConstant';
+import NetworkReachability from '../../utilities/Common/NetworkReachability';
+import LoaderView from '../subviews/LoaderView/LoaderView';
+import UserProfileViewModel from '../../viewmodel/UserProfile/UserProfileViewModel';
 
 const MyAccountView = ({route, navigation}) => {
   //1. First name
@@ -31,6 +34,7 @@ const MyAccountView = ({route, navigation}) => {
 
   const [navTitle, SetNavTitle] = useState('My Account');
 
+  const [isLoading, setLoading] = useState(false);
   const PaddingView = () => {
     return <View style={{height: 20}} />;
   };
@@ -86,12 +90,36 @@ const MyAccountView = ({route, navigation}) => {
       });
     }
   }, [navTitle]);
+
+  useEffect(() => {
+    NetworkReachability.CheckConnectivity().then((state) => {
+      if (state.isConnected) {
+        setLoading(true);
+        UserProfileViewModel.GetUserDetails().then((response) => {
+          setLoading(false);
+          if (response.user_msg == undefined) {
+            console.log(response);
+            SetFname(response.first_name);
+            SetLname(response.last_name);
+            SetEmail(response.email);
+            SetPNumber(response.phone_no);
+            SetDOB(response.dob);
+          } else {
+            Alert.alert(Strings.LP_NEOSTORE, response.user_msg);
+          }
+        });
+      } else {
+        Alert.alert(Strings.LP_NEOSTORE, Strings.NO_INTERNET);
+      }
+    });
+  }, []);
   return (
     <SafeAreaView
       style={[
         RegisterStyle.safeArea,
         {backgroundColor: isEdit ? Colors.WHITE : Colors.APP_BG},
       ]}>
+      <LoaderView visible={isLoading} />
       <KeyboardAwareScrollView
         style={RegisterStyle.scrollView}
         resetScrollToCoords={{x: 0, y: 0}}
@@ -112,6 +140,7 @@ const MyAccountView = ({route, navigation}) => {
           onChangeText={(text) => {
             SetFname(text);
           }}
+          value={Fname}
         />
 
         <PaddingView />
@@ -122,6 +151,7 @@ const MyAccountView = ({route, navigation}) => {
           onChangeText={(LastName) => {
             SetLname(LastName);
           }}
+          value={Lname}
         />
 
         <PaddingView />
@@ -133,6 +163,7 @@ const MyAccountView = ({route, navigation}) => {
             SetEmail(EmailName);
           }}
           keyboardType={1}
+          value={Email}
         />
         <PaddingView />
         <EntryField
@@ -143,6 +174,7 @@ const MyAccountView = ({route, navigation}) => {
             SetPNumber(Number);
           }}
           keyboardType={2}
+          value={PNumber}
         />
         <PaddingView />
         <EntryField
@@ -153,6 +185,7 @@ const MyAccountView = ({route, navigation}) => {
             SetDOB(dob);
           }}
           keyboardType={2}
+          value={dob}
         />
         <PaddingView />
         <TouchableOpacity
