@@ -5,10 +5,6 @@ const numColumns = 2;
 const margine = 8;
 
 const HomeStyle = StyleSheet.create({
-  container: {
-    height: 220,
-    marginBottom: 10,
-  },
   itemContainer: {
     width: size - margine * numColumns,
     height: size - margine * numColumns,

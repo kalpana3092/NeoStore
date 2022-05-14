@@ -6,12 +6,16 @@ import HomeViewModel from '../../../viewmodel/Home/HomeViewModel';
 import CarouselCardItem, {SLIDER_WIDTH, ITEM_WIDTH} from './CarouselCardItem';
 
 const data = HomeViewModel.GetCaroselData();
-const CarouselCards = () => {
+const CarouselCards = (props) => {
   const [index, setIndex] = React.useState(0);
   const isCarousel = React.useRef(null);
 
   return (
-    <View style={{height: 220, marginBottom: 10}}>
+    <View
+      style={{
+        height: props.viewHeight,
+        marginBottom: 10,
+      }}>
       <Carousel
         layout="stack"
         layoutCardOffset={9}

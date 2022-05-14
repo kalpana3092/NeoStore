@@ -1,0 +1,17 @@
+export default RouteConstant = {
+  Login: 'Login',
+  Register: 'Register',
+  Home: 'Home',
+  Cart: 'MyCart',
+  Product: 'ProductList',
+  ProductDetail: 'ProductDetail',
+  Store: 'StoreLocator',
+  Account: 'MyAccount',
+  Logout: 'Logout',
+  Order: 'MyOrders',
+  OrderDetail: 'OrderDetail',
+  ForgotPassword: 'ForgotPassword',
+  ResetPassword: 'ResetPassword',
+  AddressList: 'AddressList',
+  AddAddress: 'AddAddress',
+};

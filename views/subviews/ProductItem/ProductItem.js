@@ -1,12 +1,15 @@
 import React from 'react';
-import {Image, View, Text} from 'react-native';
-import {Rating} from 'react-native-ratings';
+import {Image, View, Text, TouchableOpacity} from 'react-native';
 import ProductItemStyle from './ProductItem.style';
 import * as ImgConstant from '../../../utilities/Constants/ImageConstant';
-
+import CustomRatingView from '../CustomRatingView/CustomRatingView';
+// import {Dropdown} from 'react-native-material-dropdown-v2-fixed';
 const ProductItem = (prop) => {
   return (
-    <View>
+    <TouchableOpacity
+      onPress={() => {
+        prop.OnPress('1');
+      }}>
       <View style={ProductItemStyle.conatinerView}>
         <Image
           style={ProductItemStyle.image}
@@ -17,29 +20,23 @@ const ProductItem = (prop) => {
             flex: 1,
             justifyContent: 'space-between',
           }}>
-          <View style={{marginTop: 10}}>
+          <View style={{marginTop: 5}}>
             <Text style={ProductItemStyle.name}>{prop.name}</Text>
             <Text style={ProductItemStyle.category}>{prop.category}</Text>
           </View>
           <View style={ProductItemStyle.pricerateView}>
             <Text style={ProductItemStyle.price}>{prop.price}</Text>
-            <Rating
-              type="custom"
-              ratingImage={ImgConstant.PL_IMG_STARCHECK}
-              ratingColor="clear"
-              ratingBackgroundColor="clear"
-              minValue={3}
-              ratingCount={5}
+            <CustomRatingView
+              maxRating={[1, 2, 3, 4, 5]}
+              defaultRating={3}
+              disabled={true}
               imageSize={20}
-              // onFinishRating={this.ratingCompleted}
-              // style={{paddingVertical: 10}}
-              readonly={true}
             />
           </View>
         </View>
       </View>
       <View style={ProductItemStyle.horizontalLine} />
-    </View>
+    </TouchableOpacity>
   );
 };
 export default ProductItem;

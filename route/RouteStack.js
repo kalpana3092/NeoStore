@@ -3,9 +3,9 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {StatusBar} from 'react-native';
 import LoginView from '../views/Login/LoginView';
-import HomeView from '../views/Home/HomeView';
 import RegisterView from '../views/Register/RegisterView';
-import ProductListingView from '../views/ProductListing/ProductListingView';
+import RouteConstant from '../utilities/Constants/RouteConstant';
+import ForgotPasswordView from '../views/ForgotPassword/ForgotPasswordView';
 
 const Stack = createStackNavigator();
 const RouteStack = () => {
@@ -13,7 +13,7 @@ const RouteStack = () => {
     <NavigationContainer>
       <StatusBar barStyle="light-content" />
       <Stack.Navigator
-        initialRouteName="Login"
+        initialRouteName={RouteConstant.Login}
         screenOptions={{
           headerStyle: {
             backgroundColor: '#e91c1a',
@@ -21,24 +21,21 @@ const RouteStack = () => {
           headerTintColor: '#fff',
           headerTitleStyle: {
             fontWeight: 'bold',
+            fontSize: 25,
           },
           headerBackTitle: ' ',
+          headerTitleAlign: 'center',
         }}>
-        <Stack.Screen name="Login" component={LoginView} />
+        <Stack.Screen name={RouteConstant.Login} component={LoginView} />
         <Stack.Screen
-          name="Home"
-          component={HomeView}
-          options={{title: 'Dashboard'}}
-        />
-        <Stack.Screen
-          name="Register"
+          name={RouteConstant.Register}
           component={RegisterView}
           options={{title: 'Register'}}
         />
         <Stack.Screen
-          name="PList"
-          component={ProductListingView}
-          options={{title: 'Tables'}}
+          name={RouteConstant.ForgotPassword}
+          component={ForgotPasswordView}
+          options={{title: 'Forgot Password'}}
         />
       </Stack.Navigator>
     </NavigationContainer>

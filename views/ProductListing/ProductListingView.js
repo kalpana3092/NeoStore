@@ -1,5 +1,7 @@
 import React from 'react';
+import {useEffect} from 'react';
 import {FlatList, SafeAreaView, View} from 'react-native';
+import RouteConstant from '../../utilities/Constants/RouteConstant';
 import ProductItem from '../subviews/ProductItem/ProductItem';
 import ProductListingStyle from './ProductListingView.style';
 
@@ -12,7 +14,7 @@ const data = [
   },
   {
     id: '2',
-    name: 'stylis morder table jbzxj12222',
+    name: 'stylis morder table jbzxj12222  table ',
     category: 'Iron table center dfs',
     price: 'RS. 25,000',
   },
@@ -23,7 +25,15 @@ const data = [
     price: 'RS. 28,000',
   },
 ];
-const ProductListingView = () => {
+const ProductListingView = ({route, navigation}) => {
+  const navTitle = route.params.title;
+  useEffect(() => {
+    if (navTitle != undefined) {
+      navigation.setOptions({
+        title: route.params.title,
+      });
+    }
+  }, [navTitle]);
   return (
     <SafeAreaView>
       <View style={ProductListingStyle.mainView}>
@@ -36,6 +46,12 @@ const ProductListingView = () => {
               name={data.item.name}
               price={data.item.price}
               category={data.item.category}
+              OnPress={(id) => {
+                navigation.navigate(RouteConstant.ProductDetail, {
+                  pID: id,
+                  title: data.item.name,
+                });
+              }}
             />
           )}
         />
